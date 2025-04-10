@@ -116,7 +116,7 @@ class ArrayDataSource implements IDataSource
 			$data = [];
 
 			foreach ($this->data as $item) {
-				if (is_object($item->$column) && $item->$column instanceof \DateTimeInterface) {
+				if (is_object($item) && is_object($item->$column) && $item->$column instanceof \DateTimeInterface) {
 					$sort_by = $item->$column->format('Y-m-d H:i:s');
 				} elseif (is_object($item[$column]) && $item[$column] instanceof \DateTimeInterface) {
 					$sort_by = $item[$column]->format('Y-m-d H:i:s');
